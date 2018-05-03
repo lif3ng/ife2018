@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            margin: 10px auto;
+            width: 100px;
+            height: 30px;
+            font-size: 25px;
+            transition: color 0s .5s;
+
+        }
+        button {
+            width: 100px;
+            margin: 0 auto;
+            display: block;
+        }
+        div:after{
+            content:'.';
+            color: transparent;
+            display: inline-block;
+            background: blue;
+            height: 2px;
+            width: 0%;
+            text-align: center;
+            position: relative;
+            left: 50%;
+            transition: width 1s, left 1s;
+        }
+        div.selected{
+            color: blue
+        }
+        div.selected:after{
+            width: 100%;
+            left:0;
+        }
+    </style>
+</head>
+<body>
+    <div>前端学院</div>
+    <button>切换样式</button>
+    <script>
+        var btn = document.getElementsByTagName('button')[0]
+        var text = document.getElementsByTagName('div')[0]
+        btn.addEventListener('click', () => {
+            text.className = text.className.indexOf('selected') !== -1 ? '' : 'selected';
+        })
+    </script>
+</body>
+</html>
